@@ -1,13 +1,14 @@
 import { FooterNav } from "@/widgets/footerNav";
 import { Header } from "@/widgets/header";
+import { PostList } from "@/widgets/post/ui/PostList";
 import React from "react";
 
-export const PostList = () => {
+export const Board = () => {
   return (
     <div className="container">
-      <div className="p-4">
+      <div className="p-4 pb-20">
         <Header />
-        <h2 className="text-3xl font-bold mb-6">게시판</h2>
+        <PostList />
       </div>
 
       <FooterNav />
