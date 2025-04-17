@@ -8,7 +8,9 @@ interface CommunityDetailPageProps {
   postId: string;
 }
 
-export const CommunityDetailPage = ({ postId }: CommunityDetailPageProps) => {
+export default function CommunityDetailPage({
+  postId,
+}: CommunityDetailPageProps) {
   const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
@@ -45,4 +47,4 @@ export const CommunityDetailPage = ({ postId }: CommunityDetailPageProps) => {
       </div>
     </div>
   );
-};
+}

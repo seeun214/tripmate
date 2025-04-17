@@ -3,7 +3,7 @@ import { Header } from "@/widgets/header";
 import { PostList } from "@/widgets/post/ui/PostList";
 import React from "react";
 
-export const PostListPage = () => {
+export default function PostListPage() {
   return (
     <div className="container">
       <div className="p-4 pb-20">
@@ -14,4 +14,4 @@ export const PostListPage = () => {
       <FooterNav />
     </div>
   );
-};
+}

@@ -7,7 +7,9 @@ interface AccompanyDetailPageProps {
   postId: string;
 }
 
-export const AccompanyDetailPage = ({ postId }: AccompanyDetailPageProps) => {
+export default function AccompanyDetailPage({
+  postId,
+}: AccompanyDetailPageProps) {
   const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
@@ -55,4 +57,4 @@ export const AccompanyDetailPage = ({ postId }: AccompanyDetailPageProps) => {
       </div>
     </div>
   );
-};
+}
