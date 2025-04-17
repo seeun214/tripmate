@@ -1,4 +1,4 @@
-import { PostListPage } from "@/pages/board";
+import { PostListPage } from "@/app/board/(routes)";
 
 export default function Home() {
   return <PostListPage />;
