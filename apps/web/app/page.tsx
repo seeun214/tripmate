@@ -1,5 +1,5 @@
-import { PostList } from "@/pages/board";
+import PostListPage from "@/pages/ui/PostListPage";
 
 export default function Home() {
-  return <PostList />;
+  return <PostListPage />;
 }
