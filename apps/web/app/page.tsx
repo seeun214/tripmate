@@ -1,4 +1,4 @@
-import { PostListPage } from "@/pages";
+import PostListPage from "@/pages/ui/PostListPage";
 
 export default function Home() {
   return <PostListPage />;
