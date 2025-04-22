@@ -1,4 +1,4 @@
-export const Header = () => {
+export const HomeHeader = () => {
   const displayName = "모험가, 밝은윌리님!";
   return (
     <header className="flex items-center">
