@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Post } from "@/entities/post/model/type";
 import { timeAgo } from "@/shared/utils/timAgo";
 import { getPostById } from "@/entities/post/api";
+import { PostHeader } from "@/widgets/header";
 
 interface CommunityDetailPageProps {
   postId: string;
@@ -27,7 +28,8 @@ export default function CommunityDetailPage({
   if (!post) return <div>loading...</div>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white">
+    <div className="px-5">
+      <PostHeader />
       <div className="mt-6 pt-4">
         <div className="flex items-center">
           <div className="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
