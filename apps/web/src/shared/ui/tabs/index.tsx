@@ -1,26 +1,33 @@
-import React, { useState, useCallback } from "react";
-
-interface TabItem {
-  label: string;
-  condition?: boolean;
-}
+import React from "react";
 
 interface TabsProps {
-  tabs: TabItem[];
-  selectedLabel: string;
-  onChange: (label: string) => void;
+  options: string[];
+  selectedCategory: string;
+  onSelect: (category: string) => void;
   className?: string;
 }
 
 export const Tabs = ({
-  tabs,
-  selectedLabel,
-  onChange,
-  className,
+  options,
+  selectedCategory,
+  onSelect,
+  className = "",
 }: TabsProps) => {
   return (
-    <div className={`flex flex-col ${className}`}>
-      <div className="flex border-b border-gray-300"></div>
+    <div className={`flex space-x-4 px-3 py-2 ${className}`}>
+      {options.map((cat) => (
+        <button
+          key={cat}
+          onClick={() => onSelect(cat)}
+          className={`px-3 py-1 text-lg font-bold border-b-2 ${
+            selectedCategory === cat
+              ? "border-gray-500 font-bold text-gray-900"
+              : "border-transparent text-gray-500"
+          }`}
+        >
+          {cat}
+        </button>
+      ))}
     </div>
   );
 };
