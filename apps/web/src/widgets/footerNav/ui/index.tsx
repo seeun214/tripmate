@@ -1,3 +1,4 @@
+import { showCreatePost } from "@/features/createPost/lib/showCreatePost";
 import { Home, Users, PlusCircle, Compass, MessageSquare } from "lucide-react";
 
 export const FooterNav = () => {
@@ -22,7 +23,11 @@ export const FooterNav = () => {
           href="#"
           className="flex flex-col items-center justify-center gap-1 text-neutral-400 hover:text-neutral-900"
         >
-          <PlusCircle size={32} className="self-center" />
+          <PlusCircle
+            size={32}
+            className="self-center"
+            onClick={showCreatePost}
+          />
         </a>
         <a
           href="#"

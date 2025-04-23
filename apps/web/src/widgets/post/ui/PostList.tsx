@@ -1,8 +1,34 @@
+"use client";
 import { getPostList } from "@/entities/post";
 import Link from "next/link";
+import React, { useState, useEffect } from "react";
 
-export const PostList = async () => {
-  const postList = await getPostList();
+const getCategoryIcon = (category: string) => {
+  switch (category) {
+    case "동행모집":
+      return <>👬</>;
+    case "자유수다":
+      return <>💬</>;
+  }
+};
+
+export const PostList = () => {
+  const [postList, setPostList] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const posts = await getPostList();
+      setPostList(posts);
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <ul className="divide-y divide-gray-200">
@@ -15,8 +41,8 @@ export const PostList = async () => {
         return (
           <li key={post.id} className="px-3 py-4">
             <Link href={detailPageUrl}>
-              <span className="inline-block mb-1 rounded-full bg-orange-100 px-3 py-1 text-xs font-medium text-orange-800 shadow-sm">
-                {post.category}
+              <span className="inline-block mb-1 rounded-full bg-gray-100 px-2 py-1 text-xs font-bold shadow-sm">
+                {getCategoryIcon(post.category)} {post.category}
               </span>
 
               <div className="flex justify-between items-start">

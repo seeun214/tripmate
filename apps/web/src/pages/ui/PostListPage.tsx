@@ -1,8 +1,8 @@
 "use client";
+import { CreatePostBottomSheet } from "@/features/createPost/ui/CreatePostBottomSheet";
 import { FooterNav } from "@/widgets/footerNav";
 import { HomeHeader } from "@/widgets/header/ui/homeHeader";
 import { PostList } from "@/widgets/post/ui/PostList";
-import React from "react";
 
 export default function PostListPage() {
   return (
@@ -10,6 +10,7 @@ export default function PostListPage() {
       <div className="p-4 pb-20">
         <HomeHeader />
         <PostList />
+        <CreatePostBottomSheet />
       </div>
       <FooterNav />
     </div>
