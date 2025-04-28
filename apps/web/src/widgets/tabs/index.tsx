@@ -15,17 +15,17 @@ export const Tabs = ({
 }: TabsProps) => {
   return (
     <div className={`flex space-x-4 px-3 py-2 ${className}`}>
-      {options.map((cat) => (
+      {options.map((option) => (
         <button
-          key={cat}
-          onClick={() => onSelect(cat)}
+          key={option}
+          onClick={() => onSelect(option)}
           className={`px-3 py-1 text-lg font-bold border-b-2 ${
-            selectedCategory === cat
+            selectedCategory === option
               ? "border-gray-500 font-bold text-gray-900"
               : "border-transparent text-gray-500"
           }`}
         >
-          {cat}
+          {option}
         </button>
       ))}
     </div>
