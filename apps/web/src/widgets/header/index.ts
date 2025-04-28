@@ -1,2 +1,2 @@
-export { HomeHeader } from "./ui/HomeHeader";
-export { PostHeader } from "./ui/PostHeader";
+export { HomeHeader } from "./ui/Tmp_homeHeader";
+export { PostHeader } from "./ui/Tmp_postHeader";
