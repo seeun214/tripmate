@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { getPostList } from "@/entities/post";
 import Link from "next/link";
-import { BottomSheet } from "@/shared/ui/bottomSheet";
-import { Tabs } from "@/shared/ui/tabs";
+import { BottomSheet } from "@/widgets/bottomSheet/ui/BottomSheet";
+import { Tabs } from "@/widgets/tabs/ui/Tabs";
 import { ChevronDown } from "lucide-react";
 
 const CATEGORY_OPTIONS = ["전체", "동행모집", "자유수다"];

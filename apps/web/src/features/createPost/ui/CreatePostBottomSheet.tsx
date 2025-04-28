@@ -1,4 +1,4 @@
-import { BottomSheet } from "@/shared/ui/bottomSheet";
+import { BottomSheet } from "@/widgets/bottomSheet/ui/BottomSheet";
 import { useCreatePostStore } from "../model/createPostStore";
 import { useState } from "react";
 
