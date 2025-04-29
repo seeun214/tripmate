@@ -1,4 +1,4 @@
-import AccompanyDetailPage from "@/pages/board/ui/AccompanyDetailPage";
+import AccompanyDetailPage from "@/views/board/ui/AccompanyDetailPage";
 
 type Params = Promise<{ id: string }>;
 
