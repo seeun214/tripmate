@@ -1,4 +1,4 @@
-import CommunityDetailPage from "@/pages/ui/CommunityDetailPage";
+import CommunityDetailPage from "@/pages/board/ui/CommunityDetailPage";
 
 type Params = Promise<{ id: string }>;
 
