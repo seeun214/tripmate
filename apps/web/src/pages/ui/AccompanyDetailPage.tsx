@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import { Post } from "@/entities/post/model/type";
 import { getPostById } from "@/entities/post/api";
-import { PostHeader } from "@/widgets/header";
 import { Calendar, MapPin, Users, Globe } from "lucide-react";
+import { PostHeader } from "@/widgets/header/ui/PostHeader";
 
 interface AccompanyDetailPageProps {
   postId: string;

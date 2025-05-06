@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { getPostList } from "@/entities/post";
 import Link from "next/link";
 import { BottomSheet } from "@/widgets/bottomSheet/ui/BottomSheet";
 import { Tabs } from "@/widgets/tabs/ui/Tabs";
 import { ChevronDown } from "lucide-react";
+import { getPostList } from "@/entities/post/api";
 
 const CATEGORY_OPTIONS = ["전체", "동행모집", "자유수다"];
 

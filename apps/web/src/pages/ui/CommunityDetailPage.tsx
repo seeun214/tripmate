@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Post } from "@/entities/post/model/type";
 import { timeAgo } from "@/shared/utils/timAgo";
 import { getPostById } from "@/entities/post/api";
-import { PostHeader } from "@/widgets/header";
+import { PostHeader } from "@/widgets/header/ui/PostHeader";
 
 interface CommunityDetailPageProps {
   postId: string;
