@@ -3,8 +3,8 @@ import { Tabs } from "@/widgets/tabs/ui/Tabs";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { RegionBottomSheet } from "./RegionBottomSheet";
-import { PostCard } from "@/widgets/postCard/ui/PostCard";
 import { filterPosts } from "../model/filters";
+import { PostCard } from "@/entities/post/ui/PostCard";
 
 export interface CategoryOption {
   key: string;
