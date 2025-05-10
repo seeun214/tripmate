@@ -1,6 +1,8 @@
 import { BottomSheet } from "@/widgets/bottomSheet/ui/BottomSheet";
 import { useCreatePostStore } from "../model/createPostStore";
 import { useState } from "react";
+import { TopicPicker } from "./TopicPicker";
+import { CategoryPicker } from "./CategoryPicker";
 
 export const CreatePostBottomSheet = () => {
   const { isOpen, close } = useCreatePostStore();
@@ -67,52 +69,5 @@ export const CreatePostBottomSheet = () => {
         )}
       </div>
     </BottomSheet>
-  );
-};
-
-export const CategoryPicker = ({
-  onSelect,
-}: {
-  onSelect: (region: string) => void;
-}) => {
-  const regions = ["서울", "부산", "대구", "인천"];
-  return (
-    <div className="space-y-4 mt-4">
-      <div className="grid grid-cols-2 gap-4">
-        {regions.map((region, index) => (
-          <button
-            key={index}
-            className="w-full p-5 text-center bg-gray-100 rounded-lg transition-colors duration-300"
-            onClick={() => onSelect(region)}
-          >
-            {region}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export const TopicPicker = ({
-  onSelect,
-}: {
-  onSelect: (topic: string) => void;
-}) => {
-  const topics = ["질문", "정보", "후기", "추천", "거래", "정보"];
-
-  return (
-    <div className="space-y-4 mt-4">
-      <div className="space-y-2">
-        {topics.map((topic, index) => (
-          <button
-            key={index}
-            className="w-full p-3 text-left"
-            onClick={() => onSelect(topic)}
-          >
-            {topic}
-          </button>
-        ))}
-      </div>
-    </div>
   );
 };

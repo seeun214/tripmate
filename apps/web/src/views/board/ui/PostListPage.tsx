@@ -1,8 +1,8 @@
 "use client";
 import { CreatePostBottomSheet } from "@/features/createPost/ui/CreatePostBottomSheet";
-import { FooterNav } from "@/widgets/footerNav";
-import { HomeHeader } from "@/widgets/header";
-import { PostList } from "@/widgets/post/ui/PostList";
+import { PostList } from "@/features/postList/ui/PostList";
+import { FooterNav } from "@/widgets/footerNav/ui/FooterNav";
+import { HomeHeader } from "@/widgets/header/ui/HomeHeader";
 
 export default function PostListPage() {
   return (
