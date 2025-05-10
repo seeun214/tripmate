@@ -30,7 +30,7 @@ export const FooterNav = () => {
           />
         </a>
         <a
-          href="#"
+          href="/member/login"
           className="flex flex-col items-center justify-center gap-1 text-neutral-400 hover:text-neutral-900"
         >
           <Users size={20} />
