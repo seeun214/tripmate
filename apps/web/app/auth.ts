@@ -1,17 +1,11 @@
-// 카카오 프로바이더 설정 관리
-import type { NextAuthOptions } from "next-auth";
-import KakaoProvider from "next-auth/providers/kakao";
+import Kakao from "@auth/core/providers/kakao";
+import NextAuth from "next-auth";
 
-export const authOptions: NextAuthOptions = {
+export const { handlers, signIn, signOut } = NextAuth({
   providers: [
-    KakaoProvider({
+    Kakao({
       clientId: process.env.KAKAO_CLIENT_ID!,
       clientSecret: process.env.KAKAO_CLIENT_SECRET!,
-      authorization: {
-        params: {
-          scope: "profile_nickname profile_image",
-        },
-      },
     }),
   ],
   session: { strategy: "jwt" },
@@ -25,4 +19,4 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
   },
-};
+});
