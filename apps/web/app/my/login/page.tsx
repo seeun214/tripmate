@@ -1,5 +1,5 @@
 import LoginPage from "@/views/login/LoginPage";
 
-export default async function Page({}) {
+export default function Page({}) {
   return <LoginPage />;
 }
