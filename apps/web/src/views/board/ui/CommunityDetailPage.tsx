@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Post } from "@/entities/post/model/type";
-import { timeAgo } from "@/shared/utils/timAgo";
+import { timeAgo } from "@/shared/lib/timAgo";
 import { getPostById } from "@/entities/post/api";
 import { PostHeader } from "@/widgets/header/ui/PostHeader";
 
