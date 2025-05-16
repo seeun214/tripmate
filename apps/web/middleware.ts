@@ -1,28 +1,20 @@
-import { getSession } from "@/features/auth/api/serverActions";
+import { updateSession } from "@/shared/lib/supabase/middleware";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export async function middleware(req: NextRequest) {
-  const session = await getSession();
+  return await updateSession(req);
 
-  const { pathname } = req.nextUrl;
-  console.log(session);
+  // // 보호해야 할 경로라면
+  // if (req.nextUrl.pathname.startsWith("/my") && !session) {
+  //   // 로그인 페이지로 리다이렉트 해주고
+  //   const loginUrl = new URL("/login", req.nextUrl);
+  //   return NextResponse.redirect(loginUrl, { headers: res.headers });
+  // }
 
-  // 1) 마이페이지 접근
-  if (pathname === "/my") {
-    return session
-      ? NextResponse.next()
-      : NextResponse.redirect(new URL("/my/login", req.url));
-  }
-
-  // 2) 로그인 페이지에 이미 로그인한 사용자가 접근
-  if (pathname === "/my/login" && session) {
-    return NextResponse.redirect(new URL("/", req.url));
-  }
-
-  return NextResponse.next();
+  // return res;
 }
 
 export const config = {
-  matcher: ["/my/:path*"],
+  matcher: ["/my/:path*", "/login"],
 };

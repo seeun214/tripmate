@@ -1,27 +1,26 @@
 "use server";
 
-import { auth, signIn, signOut, update } from "app/auth";
+import { createClient } from "@/shared/lib/supabase/server";
+import { redirect } from "next/navigation";
 
-export const signInWithCredentials = async (formData: FormData) => {
-  await signIn("credentials", {
-    displayName: formData.get("displayName") || "",
-    email: formData.get("email") || "",
-    password: formData.get("password") || "",
-    // redirectTo: '/'
+/**
+ * 카카오 OAuth 로그인 서버 액션
+ */
+export async function signInWithKakao() {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "kakao",
+    options: {
+      redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/auth/callback`,
+    },
   });
-};
-export const signInWithKakao = async () => {
-  await signIn("kakao", {
-    /* 옵션 */
-  });
-};
-export const signInWithGoogle = async () => {
-  await signIn("google", {
-    /* 옵션 */
-  });
-};
+  if (error) {
+    throw new Error(error.message);
+  }
+  redirect(data.url);
+}
 
-export const signOutWithForm = async (formData: FormData) => {
-  await signOut();
-};
-export { auth as getSession, update as updateSession };
+/**
+ * 로그아웃 서버 액션
+ */
+export async function signOutWithForm() {}
