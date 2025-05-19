@@ -1,84 +1,39 @@
-# Turborepo starter
+# TripMate
 
-This Turborepo starter is maintained by the Turborepo core team.
+TripMate는 Next.js와 Supabase를 기반으로 한 여행 동행 모집 및 여행 유형 테스트 웹 애플리케이션입니다. 사용자는 여행 일정을 등록해 동행자를 찾고, 성향 테스트를 통해 나와 어울리는 여행 파트너를 찾을 수 있습니다.
 
-## Using this example
+<br/>
 
-Run the following command:
+## 핵심 기능
 
-```sh
-npx create-turbo@latest
-```
+- 여행 동행 모집: 지역, 날짜, 예산 등을 입력해 여행 일정을 등록하고, 다른 여행자와 매칭
+- 여행 유형 테스트: 휴식형·액티비티형 등 여행 성향을 분석해 유사 성향 사용자 추천
+- 소셜 로그인 지원
+  <br/>
 
-## What's inside?
+## 소셜 로그인
 
-This Turborepo includes the following packages/apps:
+Supabase OAuth로 소셜 로그인을 구현하였습니다. 아래의 다이어그램은 OAuth 로그인 흐름을 보여줍니다
 
-### Apps and Packages
+![nextAuth_sequenceDiagram](https://github.com/user-attachments/assets/31a7412c-23c6-4531-84ed-f507bf924280)
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+<br/>
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 아키텍처
 
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+프로젝트 구조는 **Feature-Sliced Design(FSD)** 을 기반으로 설계되었습니다. 각 계층은 책임과 의존도가 높은 순서부터 낮은 것 까지 순서대로 나열됩니다.
 
 ```
-cd my-turborepo
-pnpm build
+src/
+├── app         # 진입점, 전역 설정과 provider
+├── pages       # 애플리케이션의 페이지
+├── widgets     # 독립적인 UI 블록 (재사용 가능한 큰 컴포넌트)
+├── features    # 비즈니스의 주요 기능
+├── entities    # 핵심 도메인 모델 (User, Post 등)
+└── shared      # 공통 컴포넌트·유틸·UI
 ```
 
-### Develop
+### 주요 설계 원칙
 
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/docs/reference/command-line-reference)
+- 낮은 결합, 높은 응집: 주된 목적과 관련된 코드를 한데 모은 슬라이스를 생성하여, 서로 다른 슬라이스 간 의존을 최소화하고 응집도를 높입니다.
+- 단일 책임 원칙 (SRP): 각 컴포넌트는 한 가지 목적에 집중합니다.
